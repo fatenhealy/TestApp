@@ -70,7 +70,7 @@ SegmentedBar {
 
 .page-title {
     font-size: 14;
-    color: #5CE500;
+    color: white;
 }
 
 .session-page-title {
@@ -86,7 +86,7 @@ SegmentedBar {
 
 .session-page-subtitle {
     font-size: 12;
-    color: #5CE500;
+    color: white;
 }
 
 .icon-image {

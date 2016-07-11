@@ -76,11 +76,19 @@ export function shareTap(args: gestures.GestureEventData) {
         var currentPage = frame.topmost().currentPage;
 
         var controller = new UIActivityViewController(utils.ios.collections.jsArrayToNSArray([shareText]), null);
+        var presentViewController = controller.popoverPresentationController;
+        if(presentViewController) {
+            if(currentPage && currentPage.ios.navigationItem.rightBarButtonItems && currentPage.ios.navigationItem.rightBarButtonItems.count > 0) {
+                presentViewController.barButtonItem = currentPage.ios.navigationItem.rightBarButtonItems[0];
+            }
+            else {
+                presentViewController.sourceView = currentPage.ios.view;
+            }
+        }
 
         (<UIViewController>currentPage.ios).presentViewControllerAnimatedCompletion(controller, true, null);
     }
 }
-
 
 export function toogleDescritpion(args: observable.EventData) {
     var btn = <button.Button>args.object;
